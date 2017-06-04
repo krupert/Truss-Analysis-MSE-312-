@@ -26,16 +26,22 @@ kl = 1;
 lm = 1;
 mn = 1;
 no = 1;
-
+F = 1; %down
+phi = 0.2;
 %angles:
 angle_bao = getAngle(bo, ab, ao);
+angle_cbn = getAngle(cn, bc, bn);
+angle_dcm = getAngle(dm, cd, cm);
 
-clear Tab Tao
-syms Tab Tao
+clear Nax Nay Nby Tab Tao Tbc Tbo Tbn Tcn
+syms Nax Nay Nby Tab Tao Tbc Tbo Tbn Tcn
 
 eqns = [
-Tab == 1, 
-0 == Tab + cos(angle_bao)*Tao
+0 == Nax + Tab + cos(angle_bao)*Tao, %sum of Fx_a
+0 == Nay + sin(angle_bao)*Tao, %sum of Fy_a
+0 == Tbn*cos(angle_cbn) + Tbc - cos(angle_bao)*Tbo - Tab, %sum of Fx_b
+0 == Nby + Tbn*cos(angle_cbn) + Tbc - cos(angle_bao),
+
 ];
 
 S = solve(eqns);
