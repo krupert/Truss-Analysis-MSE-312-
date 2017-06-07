@@ -45,10 +45,22 @@ angle_gfj = getAngle(gj, fg, fj);
 angle_fgi = getAngle(fi, fg, gi);
 angle_hgi = getAngle(hi, gh, hi);
 angle_fgj = getAngle(fj, fg, fj);
+angle_ghi = getAngle(gi, gh, hi);
+angle_gij = getAngle(gj, ij, gi);
+angle_gji = getAngle(gi, gj, ij);
+angle_fjk = getAngle(fk, jk, fk);
+angle_fkj = getAngle(fj, fk, jk);
+angle_ekl = getAngle(el, ek, kl);
+angle_elk = getAngle(ek, el, lk);
+angle_dlm = getAngle(dm, dl, lm);
+angle_dml = getAngle(dl, dm, lm);
+angle_cmn = getAngle(cn, mn, cm);
+angle_nop = getAngle(np, op, no);
 angle_aop = getAngle(ab, ao, (bp+op));
 
-clear Nax Nay Nby Tab Tao Tbc Tbo Tbp Tbn Tcd Tcm Tcn Tde Tdl Tdm Tef Tek Tel Tfg Tfk Tfj 
-syms Nax Nay Nby Tab Tao Tbc Tbo Tbp Tbn Tcd Tcm Tcn Tde Tdl Tdm Tef Tek Tel Tfg Tfk Tfj 
+
+clear Nax Nay Nby Tab Tbp Tao Tbc Tbo Tbp Tbn Tcd Tcm Tcn Tde Tdl Tdm Tef Tek Tel Tfg Tfk Tfj Tgj Tgi Tgh Thi Tij Tjk Tkl Tlm Tmn Tno Top
+syms Nax Nay Nby Tab Tbp Tao Tbc Tbo Tbp Tbn Tcd Tcm Tcn Tde Tdl Tdm Tef Tek Tel Tfg Tfk Tfj Tgj Tgi Tgh Thi Tij Tjk Tkl Tlm Tmn Tno Top
 
 eqns = [
 0 == Nax + Tab + cos(angle_bao)*Tao,... %sum of Fx_a
@@ -62,7 +74,7 @@ eqns = [
 0 == Tef*cos(phi) - Tde*cos(phi) + Tek*cos(phi+angle_fek) - Tel*cos(phi + angle_del),...
 0 == Tef*sin(phi) - Tde*sin(phi) + Tek*sin(phi+angle_fek) + Tel*sin(phi+ angle_del),...
 0 == Tfg - cos(phi)*Tef - Tfk*cos(phi+angle_efk)+Tfj*cos(angle_gfj),...
-%missing eq
+0 ==  - sin(phi)*Tef + Tfk*sin(phi+angle_efk)+Tfj*sin(angle_gfj),...
 0 == Tgh - Tfg + Tgi * cos(angle_hgi) - Tgj*cos(angle_fgi),...
 0 == Tgi*sin(angle_hgi) + Tgj*sin(angle_fgj),...
 0 == - Tgh - cos(angle_ghi)*Thi,...
