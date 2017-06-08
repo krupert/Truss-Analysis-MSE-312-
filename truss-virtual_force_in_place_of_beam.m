@@ -1,5 +1,5 @@
 %parameters
-Fapp = 2.5; %down
+Fapp = -1; %down
 phi = 0.1;
 
 ab = 0.05;
