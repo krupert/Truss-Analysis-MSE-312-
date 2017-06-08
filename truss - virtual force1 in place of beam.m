@@ -1,6 +1,5 @@
 %parameters
-Fapp = 0; %down
-VF = 1;
+Fapp = 2.5; %down
 phi = 0.1;
 
 ab = 0.05;
@@ -100,7 +99,7 @@ eqns = [
 0 == - Tnp*sin(angle_onp) - Tcn*sin(angle_cnm) - Tbn*sin(angle_cbn),...
 0 == Tno + Top*cos(angle_nop) - Tao*cos(angle_aob),...
 0 == - Top*sin(angle_nop) - Tao*sin(angle_aob),...
-0 == - Fapp*(bc+cd+de+ef+fg+gh) - Nay*ab - VF*sin(angle_onp),...
+0 == - Fapp*(bc+cd+de+ef+fg+gh) - Nay*ab,...
 0 == - Fapp*(ab+bc+cd+de+ef+fg+gh) + Nby*ab
 
 ];
